@@ -5,6 +5,16 @@
 
 * [Arithmetic](http://www.w3resource.com/sql/arithmetic-functions/sql-arithmetic-function.php):  ROUND / POWER / ABS / concat / CEIL / FLOOR / LN / MOD = % / SQRT / EXP
 
+* [Date operations](https://www.w3schools.com/sql/sql_dates.asp): NOW() / CURDATE() / CURTIME() / DATE() / DATE_ADD() / DATE_SUB() / DATEDIFF() / DATE_FORMAT() /EXTRACT 
+  * example 1: SELECT EXTRACT(MONTH FROM '2012-02-01')
+  * exapmle 2: select last 7 days in mysql 
+  ```
+   SELECT * 
+   FROM table
+   WHERE table.date >= DATE(NOW()) - INTERVAL 7 DAY
+   -- WHERE table.date BETWEEN DATE_SUB(NOW(), INTERVAL 7 DAY) AND NOW()
+   ```
+
 <br>
 <br>
 
