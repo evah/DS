@@ -63,10 +63,28 @@ SELECT start_terminal,
  ```
  RANK() is slightly different from ROW_NUMBER(). If you order by start_time, for example, it might be the case that some terminals have rides with two identical start times. In this case, they are given the same rank, whereas ROW_NUMBER() gives them different numbers. You can use `NTILE(*# of buckets*)`, for example, NTILE(100), to identify what percentile a given row falls into. 
 
-* PROCEEDING as unbound window function 
-```
-
-```
+* Bounded and Unbounded **ROWS** ([ref](http://stevestedman.com/2013/04/rows-and-range-preceding-and-following/))
+  * Bounded
+  ```
+  --ROWS PRECEDING AND FOLLOWING
+  SELECT Year, DepartmentID, Revenue,
+  sum(Revenue) OVER (PARTITION by DepartmentID
+  ORDER BY [YEAR]
+  ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING) as BeforeAndAfter
+  FROM REVENUE
+  ORDER BY departmentID, year;
+  ```
+  * Unbounded
+  ```
+  -- ROWS UNBOUNDED FOLLOWING
+  -- http://stevestedman.com/?p=1485
+  SELECT Year, DepartmentID, Revenue,
+  min(Revenue) OVER (PARTITION by DepartmentID
+  ORDER BY [YEAR]
+  ROWS BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING) as MinRevenueBeyond
+  FROM REVENUE
+  ORDER BY departmentID, year;
+  ```
 
 * Create window function alias
 If you’re planning to write several window functions in to the same query, using the same window, you can create an alias. 
@@ -118,3 +136,6 @@ WINDOW ntile_window AS
 
 (4)Q: What is the difference between aggregation function used together with `group by` and aggregation function used as `window function`? 
 * A: A window function performs a calculation across a set of table rows that are somehow related to the current row. This is comparable to the type of calculation that can be done with an aggregate function. But unlike regular aggregate functions, use of a window function does not cause rows to become grouped into a single output row — the rows retain their separate identities. Behind the scenes, the window function is able to access more than just the current row of the query result. You can’t use window functions and standard aggregations in the same query. More specifically, you can’t include window functions in a `GROUP BY` clause.
+
+(5)Q: What is the difference between `ROWS` and `RANGE` ([ref](https://databricks.com/blog/2015/07/15/introducing-window-functions-in-spark-sql.html))
+* A: ROWS means the specific row or rows specified, and RANGE refers to those same rows plus any others that have the same matching values.ROW frames are based on **physical** offsets from the position of the current input row, which means that CURRENT ROW, <value> PRECEDING, or <value> FOLLOWING specifies a physical offset. RANGE frames are based on **logical** offsets from the position of the current input row, and have similar syntax to the ROW frame. A logical offset is the difference between the value of the ordering expression of the current input row and the value of that same expression of the boundary row of the frame. 
