@@ -1,12 +1,12 @@
 #Prepare for SQL interview
 
-###Basic
+## Basic
 * where / group by / order by / left join / [right join](http://www.w3schools.com/sql/sql_join_right.asp) / inner join / null / not null /[insert](http://www.w3schools.com/sql/sql_insert.asp)/ [having](http://www.w3schools.com/sql/sql_having.asp) / distinct / [like](http://www.w3schools.com/sql/sql_like.asp) / [union](http://www.w3schools.com/sql/sql_union.asp) / avg / sum / min / max / [substring](https://dev.mysql.com/doc/refman/5.7/en/string-functions.html#function_substr) / [REGEXP(RLIKE)](https://dev.mysql.com/doc/refman/5.7/en/regexp.html#operator_regexp) / [limit+top](https://www.w3schools.com/sql/sql_top.asp)
 <br>
 <br>
 
 
-### [Window functions](https://drill.apache.org/docs/sql-window-functions-introduction/)
+##  [Window functions](https://drill.apache.org/docs/sql-window-functions-introduction/)
 * Syntax
   
   ```
@@ -22,7 +22,7 @@
 
 >There are five types of boundaries, which are UNBOUNDED PRECEDING, UNBOUNDED FOLLOWING, CURRENT ROW, <value> PRECEDING, and <value> FOLLOWING. UNBOUNDED PRECEDING and UNBOUNDED FOLLOWING represent the first row of the partition and the last row of the partition, respectively. For the other three types of boundaries, they specify the offset from the position of the current input row and their specific meanings are defined based on the type of the frame. There are two types of frames, ROW frame and RANGE frame.
 
-### SQL windows function examples ([ref]())
+## SQL windows function examples ([ref]())
 * Aggregation function as window function
 ```
 SELECT start_terminal,
@@ -101,12 +101,12 @@ WINDOW ntile_window AS
  ```
 
 
-### Other SQL related tools
+## Other SQL related tools
 * [Spark2.0 SQL guide](https://spark.apache.org/docs/2.0.0-preview/sql-programming-guide.html)
 * [window functions in Spark](https://databricks.com/blog/2015/07/15/introducing-window-functions-in-spark-sql.html)
 * SQL optimization: [link1](http://www.teradata-sql.com/2012/03/sql-optimization.html), [link2](http://www.teradatahelp.com/2010/11/teradata-performance-tuning-basic-tips.html)
 
-###Possible questions
+## Possible questions
 (1)Q: what is the difference between WHERE and HAVING
 * A: [HAVING is used to check conditions after the aggregation takes place.](http://stackoverflow.com/questions/287474/whats-the-difference-between-having-and-where)
 
