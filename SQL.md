@@ -13,7 +13,9 @@
    FROM table
    WHERE table.date >= DATE(NOW()) - INTERVAL 7 DAY
    -- WHERE table.date BETWEEN DATE_SUB(NOW(), INTERVAL 7 DAY) AND NOW()
-   ```
+ ```
+ * Missingness handling: COALESCE(var1, var2, var3, var4, ..) 
+   * COALESCE() function returns the first non-NULL value of a list, or NULL if there are no non-NULL values.
 
 <br>
 <br>
