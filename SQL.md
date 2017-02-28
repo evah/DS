@@ -1,7 +1,10 @@
 #Prepare for SQL interview
 
 ## Basic
-* where / group by / order by / left join / [right join](http://www.w3schools.com/sql/sql_join_right.asp) / inner join / null / not null /[insert](http://www.w3schools.com/sql/sql_insert.asp)/ [having](http://www.w3schools.com/sql/sql_having.asp) / distinct / [like](http://www.w3schools.com/sql/sql_like.asp) / [union](http://www.w3schools.com/sql/sql_union.asp) / avg / sum / min / max / [substring](https://dev.mysql.com/doc/refman/5.7/en/string-functions.html#function_substr) / [REGEXP(RLIKE)](https://dev.mysql.com/doc/refman/5.7/en/regexp.html#operator_regexp) / [limit+top](https://www.w3schools.com/sql/sql_top.asp)
+* General: where / group by / order by / left join / [right join](http://www.w3schools.com/sql/sql_join_right.asp) / inner join / null / not null /[insert](http://www.w3schools.com/sql/sql_insert.asp)/ [having](http://www.w3schools.com/sql/sql_having.asp) / distinct / [like](http://www.w3schools.com/sql/sql_like.asp) / [union](http://www.w3schools.com/sql/sql_union.asp) / avg / sum / min / max / [substring](https://dev.mysql.com/doc/refman/5.7/en/string-functions.html#function_substr) / [REGEXP(RLIKE)](https://dev.mysql.com/doc/refman/5.7/en/regexp.html#operator_regexp) / [limit+top](https://www.w3schools.com/sql/sql_top.asp) / CONCAT
+
+* [Arithmetic](http://www.w3resource.com/sql/arithmetic-functions/sql-arithmetic-function.php):  ROUND / POWER / ABS / concat / CEIL / FLOOR / LN / MOD = % / SQRT / EXP
+
 <br>
 <br>
 
